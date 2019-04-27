@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+<meta name="viewport" content="width=device-width, initial-scale=1">
+-->
+<style>
+
+body, html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow-X: hidden;/* optional */
+}
+
+#i01, #i02, #i03, #i04, #i05, #i06, #i07, #i08, #i09, #i10, #i11
+  {display: none;}
+
+.container{
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  width: 80%;
+  padding-bottom: 50%;
+  user-select: none;
+}
+
+.container .slide_img{
+  position: absolute;
+  width: 100%;;
+  height: 100%;
+}
+
+.container .slide_img img{
+  width: inherit;
+  height: inherit;
+}
+
+.prev, .next{
+  width: 44px;
+  height: 18px;
+  position: absolute;
+  bottom:-23px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(90, 90, 90);
+  z-index: 99;
+  transition: .05s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.prev{right:200px;}
+.next{right:154px;}
+
+label span{
+  position: relative;
+  font-size: 10pt;
+  padding: 2px 2px 2px 2px;
+  /*
+  top: 50%;
+  transform: translateY(-50%);
+  */
+}
+
+.prev:hover, .next:hover{
+  transition: .3s;
+  color: #11bb11;
+}
+
+.container #nav_slide{
+  width: 100%;
+  bottom: 12%;
+  height: 11px;
+  position: absolute;
+  text-align: center;
+  z-index: 99;
+  cursor: default;
+}
+
+#nav_slide .dots{
+  width: 8px;
+  height: 8px;
+  margin: 0 3px;
+  bottom:-72px;
+  position: relative;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: rgba(200, 200, 200, 1);
+  transition: .4s;
+}
+
+#nav_slide .dots:hover {
+  cursor: pointer;
+  background-color: #11bb11;
+  transition: .25s
+}
+
+.slide_img{z-index: -1;}
+
+#i01:checked ~ #id01,
+#i02:checked ~ #id02,
+#i03:checked ~ #id03,
+#i04:checked ~ #id04,
+#i05:checked ~ #id05,
+#i06:checked ~ #id06,
+#i07:checked ~ #id07,
+#i08:checked ~ #id08,
+#i09:checked ~ #id09,
+#i10:checked ~ #id10,
+#i11:checked ~ #id11
+{z-index: 9; }
+
+#i01:checked ~ #nav_slide #dot01,
+#i02:checked ~ #nav_slide #dot02,
+#i03:checked ~ #nav_slide #dot03,
+#i04:checked ~ #nav_slide #dot04,
+#i05:checked ~ #nav_slide #dot05,
+#i06:checked ~ #nav_slide #dot06,
+#i07:checked ~ #nav_slide #dot07,
+#i08:checked ~ #nav_slide #dot08,
+#i09:checked ~ #nav_slide #dot09,
+#i10:checked ~ #nav_slide #dot10,
+#i11:checked ~ #nav_slide #dot11
+{ background-color: rgba(90,90,90,1);}
+
+@keyframes scroll{
+  0%{  opacity:.4;}
+  100%{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <input type="radio" id="i01" name="images" />
+  <input type="radio" id="i02" name="images" />
+  <input type="radio" id="i03" name="images" />
+  <input type="radio" id="i04" name="images" checked />
+  <input type="radio" id="i05" name="images" />
+  <input type="radio" id="i06" name="images" />
+  <input type="radio" id="i07" name="images" />
+  <input type="radio" id="i08" name="images" />
+  <input type="radio" id="i09" name="images" />
+  <input type="radio" id="i10" name="images" />
+  <input type="radio" id="i11" name="images" />
+
+  <div class="slide_img" id="id01">
+    <img src="images/time_history01.png">
+    <label class="prev" for="i11"><span>&#10094; Prev</span></label>
+    <label class="next" for="i02"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id02">
+    <img src="images/time_history02.png">
+    <label class="prev" for="i01"><span>&#10094; Prev</span></label>
+    <label class="next" for="i03"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id03">
+    <img src="images/time_history03.png">
+    <label class="prev" for="i02"><span>&#10094; Prev</span></label>
+    <label class="next" for="i04"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id04">
+    <img src="images/time_history04.png">
+    <label class="prev" for="i03"><span>&#10094; Prev</span></label>
+    <label class="next" for="i05"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id05">
+    <img src="images/time_history05.png">
+    <label class="prev" for="i04"><span>&#10094; Prev</span></label>
+    <label class="next" for="i06"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id06">
+    <img src="images/time_history06.png">
+    <label class="prev" for="i05"><span>&#10094; Prev</span></label>
+    <label class="next" for="i07"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id07">
+    <img src="images/time_history07.png">
+    <label class="prev" for="i06"><span>&#10094; Prev</span></label>
+    <label class="next" for="i08"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id08">
+    <img src="images/time_history08.png">
+    <label class="prev" for="i07"><span>&#10094; Prev</span></label>
+    <label class="next" for="i09"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id09">
+    <img src="images/time_history09.png">
+    <label class="prev" for="i08"><span>&#10094; Prev</span></label>
+    <label class="next" for="i10"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id10">
+    <img src="images/time_history10.png">
+    <label class="prev" for="i09"><span>&#10094; Prev</span></label>
+    <label class="next" for="i11"><span>Next &#10095;</span></label>
+  </div>
+
+  <div class="slide_img" id="id11">
+    <img src="images/time_history11.png">
+    <label class="prev" for="i10"><span>&#10094; Prev</span></label>
+    <label class="next" for="i01"><span>Next &#10095;</span></label>
+  </div>
+
+  <div id="nav_slide">
+    <label for="i01" class="dots" id="dot01"></label>
+    <label for="i02" class="dots" id="dot02"></label>
+    <label for="i03" class="dots" id="dot03"></label>
+    <label for="i04" class="dots" id="dot04"></label>
+    <label for="i05" class="dots" id="dot05"></label>
+    <label for="i06" class="dots" id="dot06"></label>
+    <label for="i07" class="dots" id="dot07"></label>
+    <label for="i08" class="dots" id="dot08"></label>
+    <label for="i09" class="dots" id="dot09"></label>
+    <label for="i10" class="dots" id="dot10"></label>
+    <label for="i11" class="dots" id="dot11"></label>
+  </div>
+</div>
+
+</body>
+</html>
